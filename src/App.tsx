@@ -3,6 +3,7 @@ import {menuItems} from "./data/db"
 // Componentes
 import MenuItem from "./components/MenuItem.tsx"
 import OrderContents from "./components/OrderContents.tsx"
+import OrderTotals from "./components/OrderTotals.tsx";
 // Hooks
 import useOrder from "./hooks/useOrder.ts"
 
@@ -33,7 +34,10 @@ function App() {
                         order={order}
                         removeItem={removeItem}
                     />
+                    <OrderTotals />
                 </div>
+
+
             </main>
         </>
     )
