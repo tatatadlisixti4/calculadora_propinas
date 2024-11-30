@@ -9,7 +9,7 @@ import TipPercentageForm from "./components/TipPercentageForm.tsx";
 import useOrder from "./hooks/useOrder.ts"
 
 function App() {
-    const {order, addItem, removeItem} = useOrder()
+    const {order, tip, setTip, addItem, removeItem} = useOrder()
     return (
         <>
             <header className="bg-teal-400 py-5">
@@ -35,7 +35,9 @@ function App() {
                         order={order}
                         removeItem={removeItem}
                     />
-                    <TipPercentageForm />
+                    <TipPercentageForm
+                        setTip={setTip}
+                    />
 
                     <OrderTotals
                         order={order}
