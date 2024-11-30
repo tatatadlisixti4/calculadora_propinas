@@ -4,6 +4,7 @@ import {menuItems} from "./data/db"
 import MenuItem from "./components/MenuItem.tsx"
 import OrderContents from "./components/OrderContents.tsx"
 import OrderTotals from "./components/OrderTotals.tsx";
+import TipPercentageForm from "./components/TipPercentageForm.tsx";
 // Hooks
 import useOrder from "./hooks/useOrder.ts"
 
@@ -34,6 +35,8 @@ function App() {
                         order={order}
                         removeItem={removeItem}
                     />
+                    <TipPercentageForm />
+
                     <OrderTotals
                         order={order}
                     />
