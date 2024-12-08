@@ -7,11 +7,9 @@ import OrderTotals from "./components/OrderTotals.tsx"
 import TipPercentageForm from "./components/TipPercentageForm.tsx"
 // Hooks
 import {useReducer} from "react"
-import useOrder from "./hooks/useOrder.ts"
 import {initialState, orderReducer} from "./reducers/order-reducer.ts"
 
 function App() {
-    const {tip, setTip, placeOrder} = useOrder()
     const [state, dispatch] = useReducer(orderReducer, initialState)
     return (
         <>
@@ -25,9 +23,9 @@ function App() {
                     <div className="space-y-3 mt-10">
                         {menuItems.map(item => (
                         <MenuItem
-                                key={item.id}
-                                item={item}
-                                dispatch={dispatch}
+                            key={item.id}
+                            item={item}
+                            dispatch={dispatch}
                             />
                         ))}
                     </div>
@@ -47,7 +45,7 @@ function App() {
                             <OrderTotals
                                 order={state.order}
                                 tip={state.tip}
-                                placeOrder={placeOrder}
+                                dispatch={dispatch}
                             />
                         </>
                     ) : (
