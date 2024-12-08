@@ -1,15 +1,18 @@
 // Data
 import {menuItems} from "./data/db"
-// Componentes
+// Compone ntes
 import MenuItem from "./components/MenuItem.tsx"
 import OrderContents from "./components/OrderContents.tsx"
-import OrderTotals from "./components/OrderTotals.tsx";
-import TipPercentageForm from "./components/TipPercentageForm.tsx";
+import OrderTotals from "./components/OrderTotals.tsx"
+import TipPercentageForm from "./components/TipPercentageForm.tsx"
 // Hooks
+import {useReducer} from "react"
 import useOrder from "./hooks/useOrder.ts"
+import {initialState, orderReducer} from "./reducers/order-reducer.ts"
 
 function App() {
     const {order, tip, setTip, addItem, removeItem, placeOrder} = useOrder()
+    const [state, dispatch] = useReducer(orderReducer, initialState)
     return (
         <>
             <header className="bg-teal-400 py-5">
