@@ -11,7 +11,7 @@ import useOrder from "./hooks/useOrder.ts"
 import {initialState, orderReducer} from "./reducers/order-reducer.ts"
 
 function App() {
-    const {tip, setTip, removeItem, placeOrder} = useOrder()
+    const {tip, setTip, placeOrder} = useOrder()
     const [state, dispatch] = useReducer(orderReducer, initialState)
     return (
         <>
@@ -41,22 +41,19 @@ function App() {
                                 dispatch={dispatch}
                             />
                             <TipPercentageForm
-                                setTip={setTip}
-                                tip={tip}
+                                dispatch={dispatch}
+                                tip={state.tip}
                             />
                             <OrderTotals
                                 order={state.order}
-                                tip={tip}
+                                tip={state.tip}
                                 placeOrder={placeOrder}
                             />
                         </>
                     ) : (
                         <p className="text-center">La orden está vacía</p>
                     )}
-
                 </div>
-
-
             </main>
         </>
     )
